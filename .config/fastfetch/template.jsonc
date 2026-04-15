@@ -1,0 +1,29 @@
+{
+    "logo": {
+        "type": "small",
+        "padding": { "top": 2 },
+        "color": {
+            "1": "{colors.primary.default.hex}", // El color principal de tu fondo
+            "2": "{colors.secondary.default.hex}"
+        }
+    },
+    "display": {
+        "separator": " ➜  ",
+        "color": "{colors.primary.default.hex}"
+    },
+    "modules": [
+        "title",
+        "os",
+        "host",
+        "kernel",
+        "uptime",
+        "shell",
+        "wm",
+        "terminal",
+        "cpu",
+        "gpu",
+        "memory",
+        "break",
+        "colors"
+    ]
+}

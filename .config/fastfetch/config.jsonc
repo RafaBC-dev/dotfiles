@@ -1,0 +1,47 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {
+        "source": "~/.config/fastfetch/logos/R.ascii",
+        "type": "auto",
+        "padding": {
+            "top": 4,
+            "left": 4,
+            "right": 6
+        },
+        "color": {
+            "1": "38;2;206;65;43" 
+        }
+    },
+    "display": {
+        "separator": " ➜  "
+    },
+    "modules": [
+        "break",
+        { "type": "custom", "format": " ───────────────────────────────────────────────────────────────", "color": "38;2;206;65;43" },
+        
+        {
+            "type": "title",
+            "color": {
+                "user": "2",
+                "at": "white",
+                "host": "2"
+            }
+        },
+
+        { "type": "os", "key": " 󰣇 System  ", "keyColor": "blue" },
+        { "type": "kernel", "key": "  Kernel  ", "keyColor": "magenta" },
+        { "type": "uptime", "key": " 󱎫 Uptime  ", "keyColor": "cyan" },
+        { "type": "terminal", "key": "  Terminal", "keyColor": "green" },
+        { "type": "display", "key": " 󰍹 Display ", "keyColor": "red" },
+        { "type": "cpu", "key": "  CPU     ", "keyColor": "blue" },
+        { "type": "gpu", "key": " 󰢮 GPU     ", "keyColor": "magenta" },
+        { "type": "memory", "key": " 󰍛 Memory  ", "keyColor": "cyan" },
+        { "type": "disk", "key": " 󰋊 Disk    ", "keyColor": "yellow" },
+
+        { "type": "custom", "format": " ───────────────────────────────────────────────────────────────", "color": "38;2;206;65;43" },
+        
+        "break",
+        { "type": "colors", "symbol": "circle" },
+        "break"
+    ]
+}
