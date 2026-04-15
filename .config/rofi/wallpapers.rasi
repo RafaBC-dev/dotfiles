@@ -1,64 +1,88 @@
 configuration {
-    show-icons: true;
+    show-icons:      true;
+    font:            "JetBrainsMono Nerd Font 10";
 }
 
-@import "~/.cache/wal/colors-rofi-dark"
+@import "colors.rasi"
+
+* {
+    /* Fondo Nord con transparencia real */
+    bg:          rgba(46, 52, 64, 0.9); 
+    bg-sel:      rgba(136, 192, 208, 0.3);
+    fg:          #eceff4;
+    accent:      #88c0d0;
+    border-col:  rgba(136, 192, 208, 0.5);
+    background-color: transparent;
+}
 
 window {
-    width: 950px;           /* Ajustado para 4 columnas sin mucho aire */
-    height: 600px;          /* Altura calculada para mostrar ~2.5 filas */
-    background-color: rgba(15, 15, 15, 0.7); 
-    border: 2px;
-    border-color: @foreground;
-    border-radius: 12px;
+    width:            1100px;
+    height:           380px;       
+    x-offset:         0px;
+    y-offset:         0px;
+    background-color: @bg;
+    border:           2px;
+    border-color:     @border-col;
+    border-radius:    16px;
+    cursor:           "default";
 }
 
 mainbox {
-    background-color: transparent;
-    children: [ listview ];
+    padding:    20px;
+    children:   [ "inputbar", "listview" ];
+}
+
+inputbar {
+    margin:           0px 0px 20px 0px;
+    padding:          10px;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius:    10px;
+    children:         [ "entry" ];
+}
+
+entry {
+    placeholder:       "   Busca tu wallpaper...";
+    placeholder-color: #616e88;
+    text-color:        @fg;
 }
 
 listview {
-    background-color: transparent;
-    columns: 4;            /* El "Sweet Spot" */
-    lines: 10;             /* Permitimos muchas líneas para que haya scroll */
-    spacing: 12px;
-    margin: 20px;
-    scrollbar: true;       /* Activamos barra para reforzar la idea de "bajar" */
-    fixed-height: false;
+    layout:     horizontal;
+    spacing:    15px;
+    lines:      10;
+    fixed-height: true;
+    fixed-columns: true;
+    border:     0px;
 }
 
 element {
-    orientation: vertical;
-    padding: 8px;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.02);
+    width:            250px;    
+    padding:          10px;
+    border-radius:    12px;
+    orientation:      vertical;
+    cursor:           pointer;
+}
+
+element normal.normal, element alternate.normal {
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+element selected.normal {
+    background-color: @bg-sel;
+    border:           1px;
+    border-color:     @accent;
+    text-color:       @accent;
 }
 
 element-icon {
-    size: 190px;           /* Imagen más grande para llenar el recuadro */
+    size:             200px;    /* Tamaño de la imagen */
     horizontal-align: 0.5;
+    cursor:           inherit;
 }
 
 element-text {
     horizontal-align: 0.5;
-    font: "JetBrainsMono Nerd Font 9";
-    text-color: @foreground;
-    margin: 4px 0px;
-}
-
-element selected {
-    background-color: rgba(255, 255, 255, 0.1);
-    border: 2px;
-    border-color: @foreground;
-}
-
-/* Estilo de la barra de scroll para que no sea fea */
-scrollbar {
-    width: 4px;
-    border: 0;
-    handle-width: 8px;
-    handle-color: @foreground;
-    padding: 0;
-    margin: 0 0 0 5px;
+    text-color:       inherit;
+    margin:           8px 0 0 0;
 }
