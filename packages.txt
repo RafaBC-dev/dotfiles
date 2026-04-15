@@ -7,10 +7,11 @@ grub-btrfs
 os-prober-btrfs
 networkmanager
 playerctl
-pulseaudio
+pipewire-pulse
 rfkill
 python-gobject
-
+power-profiles-daemon
+libnotify
 
 # --- HYPRLAND ECOSYSTEM ---
 hyprland
@@ -25,8 +26,11 @@ wl-clipboard
 cliphist
 nwg-look
 qt6-wayland
+foot
+rofi-wayland
 
 # --- DEV TOOLS ---
+rustup
 rust-analyzer
 python-pip
 clang
