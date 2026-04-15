@@ -1,0 +1,64 @@
+configuration {
+    show-icons: true;
+}
+
+@import "~/.cache/wal/colors-rofi-dark"
+
+window {
+    width: 950px;           /* Ajustado para 4 columnas sin mucho aire */
+    height: 600px;          /* Altura calculada para mostrar ~2.5 filas */
+    background-color: rgba(15, 15, 15, 0.7); 
+    border: 2px;
+    border-color: @foreground;
+    border-radius: 12px;
+}
+
+mainbox {
+    background-color: transparent;
+    children: [ listview ];
+}
+
+listview {
+    background-color: transparent;
+    columns: 4;            /* El "Sweet Spot" */
+    lines: 10;             /* Permitimos muchas líneas para que haya scroll */
+    spacing: 12px;
+    margin: 20px;
+    scrollbar: true;       /* Activamos barra para reforzar la idea de "bajar" */
+    fixed-height: false;
+}
+
+element {
+    orientation: vertical;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+element-icon {
+    size: 190px;           /* Imagen más grande para llenar el recuadro */
+    horizontal-align: 0.5;
+}
+
+element-text {
+    horizontal-align: 0.5;
+    font: "JetBrainsMono Nerd Font 9";
+    text-color: @foreground;
+    margin: 4px 0px;
+}
+
+element selected {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px;
+    border-color: @foreground;
+}
+
+/* Estilo de la barra de scroll para que no sea fea */
+scrollbar {
+    width: 4px;
+    border: 0;
+    handle-width: 8px;
+    handle-color: @foreground;
+    padding: 0;
+    margin: 0 0 0 5px;
+}

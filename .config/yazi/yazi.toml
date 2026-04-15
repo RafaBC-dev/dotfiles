@@ -1,0 +1,11 @@
+[opener]
+# Definimos el comando maestro
+abrir = [
+    { run = 'xdg-open "$@"', desc = "Abrir con el sistema", orphan = true }
+]
+
+[open]
+rules = [
+    # IMPORTANTE: El 'use' tiene que ir entre corchetes [ ]
+    { name = "*", use = [ "abrir" ] }
+]

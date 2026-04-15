@@ -1,0 +1,129 @@
+@import "../../.cache/wal/colors-waybar.css";
+
+* {
+    font-family: "JetBrainsMono NF", "Material Symbols Outlined";
+    font-size: 13px;
+    font-weight: bold;
+    border: none;
+}
+
+window#waybar { background: transparent; }
+
+/* ESTADOS DE WORKSPACES */
+#workspaces button {
+    color: @color4; 
+    padding: 0 4px;
+}
+
+#workspaces button.active {
+    color: #ffff00; 
+}
+
+#workspaces button:hover {
+    color: @color2;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+
+/* TODAS LAS PASTILLAS UNIFICADAS */
+#workspaces, 
+#hardware,
+#mpris, 
+#clock, 
+#network, 
+#bluetooth, 
+#battery, 
+#custom-power, 
+#pulseaudio, 
+#pulseaudio.microphone, 
+#custom-mouse, 
+#window { 
+    background: rgba(20, 20, 30, 0.65);
+    color: #ffffff;
+    border-radius: 11px;
+    padding: 2px 12px;
+    margin: 0 2px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* CENTRADO DE ICONOS MATERIAL */
+#network, #bluetooth { font-size: 16px; padding: 0 10px; }
+
+/* La pastilla madre: aquí va el fondo y el borde blanco */
+#hardware {
+    background: rgba(20, 20, 30, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 11px;
+    margin: 0 4px;
+    padding: 2px 4px; /* Un poco de aire en los extremos */
+}
+
+/* Los módulos de dentro: les quitamos TODO para que no parezcan cajas separadas */
+#custom-system-icon,
+#cpu,
+#memory,
+#disk {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0 8px; /* Espaciado entre números dentro de la misma pastilla */
+    color: #ffffff; /* Todos blancos y sobrios */
+}
+
+/* Un separador visual muy fino entre los números cuando se despliega */
+#cpu, #memory {
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+tooltip {
+    background: rgba(20, 20, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+}
+
+/* COMPORTAMIENTO DEL TASKBAR (BOTONES INTERNOS) */
+#taskbar button {
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    box-shadow: none; 
+    text-shadow: none; 
+}
+
+
+#taskbar button:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* TOOLTIP (CUADRO FLOTANTE) */
+tooltip {
+    background: rgba(30, 30, 46, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+tooltip label {
+    color: #cdd6f4;
+    font-size: 14px;
+}
+
+/* Botón de la Hamburguesa */
+#custom-hamburger {
+    background: rgba(20, 20, 30, 0.65);
+    color: @color7;
+    border-radius: 11px;
+    padding: 0 12px;
+    margin-right: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Contenedor de los iconos cuando se despliegan */
+.taskbar-child {
+    background: rgba(20, 20, 30, 0.45);
+    border-radius: 11px;
+    margin-left: 5px;
+    padding: 2px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}

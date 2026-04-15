@@ -1,0 +1,46 @@
+@import "../../.cache/wal/colors-waybar.css";
+
+* {
+    font-family: "JetBrains Mono", monospace;
+    border: none;
+    outline: none;
+}
+
+#window {
+    background-color: rgba(15, 15, 15, 0.9); /* Fondo oscuro general */
+    border: 2px solid @color2;
+    border-radius: 12px;
+}
+
+#outer-box {
+    padding: 10px;
+    background-color: transparent;
+}
+
+#input {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: @foreground;
+    border-radius: 8px;
+    padding: 10px;
+    margin: 5px;
+}
+
+/* ESTO MATA LA BARRA ROSA: Forzamos los contenedores a ser transparentes */
+#inner-box, #scroll, #text {
+    background-color: transparent;
+}
+
+#entry {
+    padding: 10px;
+    margin: 2px 5px;
+    border-radius: 8px;
+}
+
+/* Selección: Toda la barra del color del wallpaper */
+#entry:selected {
+    background-color: @color2 !important;
+}
+
+#text:selected {
+    color: @background !important;
+}

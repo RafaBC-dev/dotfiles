@@ -1,0 +1,4 @@
+[[manager.prepend_keymap]]
+on   = [ "<Enter>" ]
+exec = "open"
+desc = "Lanzar configuración de apertura"

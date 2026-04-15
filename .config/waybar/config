@@ -1,0 +1,196 @@
+{
+    "reload_style_on_change": true,
+    "layer": "top",
+    "position": "top",
+    "margin": "8px 10px 0 10px",
+    "spacing": 0,
+
+    "modules-left": [ "hyprland/workspaces", "mpris", "group/task-drawer" ],
+    "modules-center": ["clock"],
+    "modules-right": ["group/hardware", "network", "bluetooth", "pulseaudio", "pulseaudio#microphone", "custom/mouse", "battery", "custom/power"],
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": { "active": "󰮯", "default": "" }
+    },
+
+    "mpris": {
+        "format": "{player_icon} {status_icon} {title}",
+        "max-length": 25,
+        "ellipsis": "…",
+        "player-icons": {
+            "default":  "󱜏",
+            "spotify":  "",
+            "firefox":  "󰺕",
+            "chromium": "",
+            "vlc":      "󰕼",
+            "youtube":  "󰗃"
+        },
+       
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "tooltip": true,
+        "tooltip-format": "{title} • {artist}"
+    },
+
+    "clock": {
+        "interval": 1,
+        "format": "{:%H:%M:%S %p}",
+        "format-alt": "{:%a, %b %d}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+      },
+      
+    "group/hardware": {
+          "orientation": "horizontal",
+          "drawer": {
+              "transition-duration": 500,
+              "transition-left-to-right": false
+          },
+          "modules": [
+              "custom/system-icon", 
+              "cpu",
+              "memory",
+              "disk"
+          ]
+      },
+      
+      "custom/system-icon": {
+          "format": "󰍹", // Icono de monitor genérico
+          "tooltip": false
+      },
+      
+      "cpu": {
+          "interval": 2,
+          "format": "CPU {usage}%", // Icono de chip
+          "on-click": "foot -e btop"
+      },
+      
+      "memory": {
+          "interval": 2,
+          "format": "RAM {percentage}%", // Icono de RAM
+          "tooltip-format": "RAM: {used:0.1f}GB / {total:0.1f}GB",
+          "on-click": "foot -e btop"
+      },
+      
+      "disk": {
+          "interval": 60,
+          "path": "/", 
+          "format": "DISK {percentage_used}%", // Icono de disco
+          "tooltip-format": "Disco: {used} / {total}",
+          "on-click": "foot -e btop"
+      },
+      
+    "network": {
+    "format-icons": {
+        "wifi": ["<span font='Material Symbols Outlined'>network_wifi_1_bar</span>",
+                 "<span font='Material Symbols Outlined'>network_wifi_2_bar</span>",
+                 "<span font='Material Symbols Outlined'>signal_wifi_4_bar</span>"],
+        "ethernet":     "<span font='Material Symbols Outlined'>lan</span>",
+        "disconnected": "<span font='Material Symbols Outlined'>signal_wifi_bad</span>"
+    },
+    "format-wifi":       "{icon}",
+    "format-ethernet":   "{icon}",
+    "format-disconnected": "{icon}",
+    "interval": 5,
+    "tooltip": true,
+    "tooltip-format": "{essid} — {signalStrength}%",
+    "on-click": "orbit toggle top-right --tab wifi",
+    "on-click-right": "rfkill toggle wifi"
+	},
+
+	"bluetooth": {
+	    "interval": 5,
+	    "format-on":        "<span font='Material Symbols Outlined'>bluetooth</span>",
+	    "format-off":       "<span font='Material Symbols Outlined'>bluetooth_disabled</span>",
+	    "format-connected": "<span font='Material Symbols Outlined'>bluetooth_connected</span>",
+	    "tooltip": true,
+	    "tooltip-format": "{device_enumerate}",
+	    "tooltip-format-enumerate-connected": "{device_alias}",
+	    "on-click": "orbit toggle top-right --tab bluetooth",
+	    "on-click-right": "rfkill toggle bluetooth"
+	},
+		
+	"pulseaudio": {
+	    "format": "{icon} {volume}%",
+	        "format-muted": "󰟎 {volume}%", // Icono de headset tachado (Nerd Font)
+	        "format-icons": {
+	            "headphone": "󰋋",
+	            "default": ["󰕿", "󰖀", "󰕾"]
+	        },
+	    "on-click": "~/.config/scripts/waybar/rofi-audio.sh --out",
+	    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+	    "scroll-step": 5
+	},
+	
+	"pulseaudio#microphone": {
+	    "format": "{format_source}",
+	    "format-source": "󰍬 {volume}%",
+	    "format-source-muted": "󰍭 {volume}%",
+	    "on-click": "~/.config/scripts/waybar/rofi-audio.sh --in",
+	    "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+	    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +2%",
+	    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -2%",
+	    "scroll-step": 2,
+	    "tooltip": true,
+	    "tooltip-format": "{source_desc}"
+	},
+
+	 "custom/power": {
+	     "format": "⏻",
+	     "on-click": "wlogout",
+	     "tooltip": false
+	 },
+	 
+	 "battery": {
+	     "states": {
+	     "warning": 30,
+         "critical": 15
+	 },
+	      "format": "{capacity}% {icon}",
+	      "format-icons": ["", "", "", "", ""],
+	      "on-click": "~/.config/scripts/waybar/power-profile.sh"
+	  },
+	  
+	  "custom/mouse": {
+	      "exec": "python ~/.config/scripts/mouse_info.py",
+	      "interval": 30,
+	      "return-type": "json",
+	      "on-click-right": "solaar",
+	      "format": "{}"
+	  },
+
+	  "group/task-drawer": {
+	      "orientation": "horizontal",
+	      "drawer": {
+	          "transition-duration": 500,
+	          "children-class": "taskbar-child",
+	          "transition-left-to-right": true
+	      },
+	      "modules": [
+	          "custom/hamburger", // El botón que se ve siempre
+	          "wlr/taskbar"       // Lo que se despliega
+	      ]
+	  },
+	  
+	  "custom/hamburger": {
+	      "format": "", // Icono de las 3 barras (Nerd Font)
+	      "tooltip": false
+	  },
+	  
+	  "wlr/taskbar": {
+	          "format": "{icon}",
+	          "icon-size": 18,
+	          "on-click": "activate",
+	          "on-click-right": "close",
+	          "ignore-list": ["Solaar", "foot"], // Ignora terminales repetidas
+	          "rewrite": {
+	              "vesktop": "com.discordapp.Discord",
+	              "VencordDesktop": "com.discordapp.Discord",
+	              "wasistlos": "whatsapp",
+	              "google-chrome": "google-chrome",
+	              "code": "vscode",
+	              "zen-browser": "zen",
+	              "Spotify": "spotify"
+	          }
+	      }
+}

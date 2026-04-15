@@ -1,0 +1,14 @@
+<!DOCTYPE patchbay>
+<patchbay name="streaming" version="1.0.0">
+ <items>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Stream-Audio" port="Stream-Audio:monitor_FL"/>
+   <input node="pw-loopback-18647" port="pw-loopback-18647:input_MONO"/>
+  </item>
+  <item node-type="pipewire" port-type="pipewire-audio">
+   <output node="Stream-Audio" port="Stream-Audio:monitor_FR"/>
+   <input node="pw-loopback-18647" port="pw-loopback-18647:input_MONO"/>
+  </item>
+ </items>
+</patchbay>
+

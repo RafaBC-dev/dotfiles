@@ -1,0 +1,26 @@
+/* Configuración de Estilo Rofi */
+configuration {
+    modi: "dmenu";
+    show-icons: false;
+}
+
+@import "~/.cache/wal/colors-rofi-dark"
+
+window {
+    background-color: rgba(15, 15, 15, 0.85); /* Transparencia */
+    border: 2px;
+    border-color: @foreground;
+    border-radius: 15px;
+    padding: 20px;
+    font: "JetBrainsMono Nerd Font 11";
+}
+
+element {
+    padding: 8px;
+    border-radius: 8px;
+}
+
+element selected {
+    background-color: @foreground;
+    text-color: @background;
+}

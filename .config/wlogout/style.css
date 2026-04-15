@@ -1,0 +1,28 @@
+window {
+    background-color: rgba(15, 15, 20, 0.85); /* Fondo oscuro suave */
+}
+
+button {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 20%;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: rgba(255, 255, 255, 0.02);
+    margin: 10px;
+    transition: all 0.3s cubic-bezier(.55, 0.0, .28, 1.4);
+    border-radius: 20px;
+}
+
+button:focus, button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background-size: 30%; /* Efecto de aumento al pasar el ratón */
+}
+
+/* Iconos específicos (Asegúrate de que las rutas existan) */
+#lock { background-image: url("/usr/share/wlogout/icons/lock.png"); }
+#logout { background-image: url("/usr/share/wlogout/icons/logout.png"); }
+#suspend { background-image: url("/usr/share/wlogout/icons/suspend.png"); }
+#hibernate { background-image: url("/usr/share/wlogout/icons/hibernate.png"); }
+#shutdown { background-image: url("/usr/share/wlogout/icons/shutdown.png"); }
+#reboot { background-image: url("/usr/share/wlogout/icons/reboot.png"); }

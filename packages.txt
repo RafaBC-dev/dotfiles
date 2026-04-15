@@ -1,0 +1,65 @@
+# --- CORE & SYSTEM ---
+base
+base-devel
+linux-zen
+linux-zen-headers
+grub-btrfs
+os-prober-btrfs
+networkmanager
+playerctl
+pulseaudio
+rfkill
+python-gobject
+
+
+# --- HYPRLAND ECOSYSTEM ---
+hyprland
+hypridle
+hyprlock
+hyprpaper
+waybar
+mako
+wofi
+wlogout
+wl-clipboard
+cliphist
+nwg-look
+qt6-wayland
+
+# --- DEV TOOLS ---
+rust-analyzer
+python-pip
+clang
+gdb
+valgrind
+micro
+helix
+visual-studio-code-bin
+solaar
+
+# --- TERMINAL & CLI ---
+fish
+starship
+zoxide
+yazi
+fastfetch
+btop
+fd
+tree
+
+# --- APPS & MEDIA ---
+zen-browser-bin
+obsidian
+vesktop
+spotify-launcher
+whatsapp-for-linux-git
+mpv
+pavucontrol
+qpwgraph
+easyeffects
+
+# --- THEMES & FONTS ---
+ttf-jetbrains-mono-nerd
+bibata-cursor-theme-bin
+whitesur-icon-theme
+ttf-material-symbols-variable-git
