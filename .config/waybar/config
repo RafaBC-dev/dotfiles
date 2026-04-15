@@ -15,24 +15,21 @@
     },
 
     "mpris": {
-        "format": "{player_icon} {status_icon} {title}",
+        "format": "{player_icon} {title}",
         "max-length": 25,
-        "ellipsis": "…",
         "player-icons": {
-            "default":  "󱜏",
-            "spotify":  "",
-            "firefox":  "󰺕",
-            "chromium": "",
-            "vlc":      "󰕼",
-            "youtube":  "󰗃"
+            "default": "󱜏", "spotify": "", "firefox": "󰺕", 
+            "youtube": "󰗃"
         },
-       
+        // Solo gestos de ratón
         "on-click": "playerctl play-pause",
-        "on-click-right": "playerctl next",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-scroll-up": "playerctl next",
+        "on-scroll-down": "playerctl previous",
         "tooltip": true,
         "tooltip-format": "{title} • {artist}"
     },
-
+    
     "clock": {
         "interval": 1,
         "format": "{:%H:%M:%S %p}",

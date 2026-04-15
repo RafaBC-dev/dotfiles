@@ -1,0 +1,89 @@
+configuration {
+    modi:                        "drun";
+    show-icons:                  true;
+    display-drun:                "";
+    drun-display-format:         "{name}";
+    font:                        "JetBrainsMono Nerd Font 10";
+}
+
+@import "colors.rasi"
+
+* {
+    bg-base:     #2e3440; /* Gris ártico */
+    bg-surface:  #3b4252; /* Selección metálica */
+    fg-text:     #eceff4; /* Blanco nieve */
+    accent:      #88c0d0; /* Azul escarchado (puedes usar @primary) */
+    background-color: transparent;
+}
+
+window {
+    width:            750px;
+    height:           650px; /* Un poco más de altura para maximizar la lista */
+    background-color: @bg-base;
+    border:           1px;
+    border-color:     #45475a;
+    border-radius:    12px;
+}
+
+mainbox {
+    spacing:          0px;
+    children:         [ "inputbar", "listview" ];
+}
+
+/* --- HEADER: PC PEGADO ARRIBA --- */
+inputbar {
+    /* 5px arriba (toca el borde) y 180px abajo (ajuste para ver teclado/ratón) */
+    padding:          50px 60px 180px 60px; 
+    background-image: url("/home/rafaelbc/.config/rofi/assets/banner.png", width);
+    children:         [ "prompt", "entry" ];
+}
+
+prompt {
+    background-color: rgba(17, 17, 27, 0.85);
+    padding:          12px 15px;
+    text-color:       @accent;
+    border-radius:    10px 0px 0px 10px;
+}
+
+entry {
+    background-color: rgba(17, 17, 27, 0.85);
+    padding:          12px;
+    text-color:       #ffffff;
+    border-radius:    0px 10px 10px 0px;
+    placeholder:      "Search...";
+}
+
+/* --- LISTA: SIN LÍNEAS, SOLO SOMBREADO --- */
+listview {
+    padding:          15px 25px;
+    columns:          2;
+    lines:            11; /* ¡Ahora caben 22 aplicaciones! */
+    spacing:          5px;
+}
+
+element {
+    padding:          8px 12px;
+    border-radius:    8px;
+    text-color:       @fg-text;
+}
+
+element selected {
+    background-color: rgba(255, 255, 255, 0.03); 
+    border:           0px 0px 1px 0px;            
+    border-color:     @accent;                    
+}
+
+element-text selected {
+    text-color:       @accent;
+    font-weight:      bold;
+}
+
+element-icon {
+    size:             28px;
+    margin:           0 12px 0 0;
+}
+
+element-text {
+    vertical-align:   0.5;
+    text-color:       inherit;
+}

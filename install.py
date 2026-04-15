@@ -19,10 +19,20 @@ def install_packages():
     if pkg_file.exists():
         confirm = input("📦 ¿Deseas instalar los paquetes de packages.txt? (s/n): ").lower()
         if confirm == 's':
-            print("🚀 Instalando paquetes con paru...")
+            print("🔄 Sincronizando repositorios y actualizando base de datos...")
+            # Forzamos la actualización de la DB (-Sy) para que no falle en sistemas nuevos
+            subprocess.run(["sudo", "pacman", "-Sy"], check=True)
+            
             with open(pkg_file, "r") as f:
                 pkgs = [l.strip() for l in f if l.strip() and not l.startswith("#")]
-            subprocess.run(["paru", "-S", "--needed", "--noconfirm"] + pkgs)
+            
+            print(f"🚀 Instalando {len(pkgs)} paquetes con pacman...")
+            try:
+                # Usamos pacman directamente para asegurar que Hyprland y la base se instalen
+                subprocess.run(["sudo", "pacman", "-S", "--needed", "--noconfirm"] + pkgs, check=True)
+            except subprocess.CalledProcessError:
+                print("❌ Error en la instalación. Revisa tu conexión o los nombres en packages.txt")
+                exit(1)
     else:
         print("⚠️ No se encontró packages.txt")
 
@@ -46,18 +56,14 @@ def make_scripts_executable():
         print("🔓 Asegurando permisos de ejecución en scripts...")
         for script in scripts_path.rglob("*"):
             if script.is_file():
-                # Equivale a chmod 755
                 script.chmod(0o755)
 
 def create_links():
     print("🔗 Generando enlaces simbólicos...")
-    
-    # 1. Automatizar todo lo que esté en dotfiles/.config
     if CONFIG_REPO.exists():
         for item in CONFIG_REPO.iterdir():
             link_item(item, CONFIG_SYS / item.name)
 
-    # 2. Enlaces específicos (Fuentes, etc.)
     for src, dest in EXTRA_DOTFILES.items():
         if src.exists():
             link_item(src, dest)
@@ -65,13 +71,13 @@ def create_links():
 def main():
     print(f"--- Instalador de Dotfiles de {HOME.name} ---")
     
-    # 1. Instalación de software
+    # 1. Instalación de software (Primero esto para que Hyprland exista)
     install_packages()
     
     # 2. Creación de enlaces
     create_links()
     
-    # 3. Permisos de ejecución (Importante para Waybar/Hyprland)
+    # 3. Permisos de ejecución
     make_scripts_executable()
     
     # 4. Refresco de cache de fuentes

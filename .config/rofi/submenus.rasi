@@ -1,0 +1,51 @@
+configuration {
+    show-icons:                  false;
+    font:                        "JetBrainsMono Nerd Font 10";
+}
+
+@import "colors.rasi"
+
+* {
+    /* Colores Nord */
+    bg-base:     #2e3440;
+    bg-surface:  #3b4252;
+    fg-text:     #eceff4;
+    accent:      #88c0d0;
+    background-color: transparent;
+}
+
+window {
+    width:            350px;
+    background-color: @bg-base;
+    border:           1px;
+    border-color:     #45475a;
+    border-radius:    10px;
+}
+
+mainbox {
+    padding:    15px;
+    children:   [ "listview" ];
+}
+
+listview {
+    lines:      6;
+    spacing:    5px;
+    fixed-height: false;
+}
+
+element {
+    padding:       10px;
+    border-radius: 8px;
+    text-color:    @fg-text;
+}
+
+element selected {
+    background-color: rgba(255, 255, 255, 0.03); 
+    border:           0px 0px 1px 0px;            
+    border-color:     @accent;                    
+}
+
+element-text {
+    text-color: inherit;
+}
+
