@@ -1,0 +1,16 @@
+{
+  "records": [
+    {
+      "date": "12-05",
+      "session_name": "prueba",
+      "moment": "Morning",
+      "duration_mins": 1
+    },
+    {
+      "date": "12-05",
+      "session_name": "general",
+      "moment": "Morning",
+      "duration_mins": 1
+    }
+  ]
+}
